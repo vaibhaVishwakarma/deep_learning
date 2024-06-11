@@ -32,7 +32,7 @@ def train(model:nn.Module = None, loss_fn =loss_fn ,lr = 0.1,epochs = 3, trainDa
 
 
 
-def show_grid(row:int = 5, col:int = 5 , model:nn.Module ,test_data:torch.utils.data.datasets=test_data , Cnn:int = 0):
+def show_grid(row:int = 5, col:int = 5  ,test_data:torch.utils.data.datasets=test_data , Cnn:int = 0 ,  model:nn.Module):
 """
 def pred(self , X):
     self.eval()
