@@ -1,4 +1,4 @@
-def train(model:nn.Module = None, loss_fn =loss_fn ,lr = 0.1,epochs = 3, trainDataLoader=trainDataLoader  , testDataLoader = testDataLoader , batch_size = 32 ):
+def train(model:nn.Module = None, loss_fn =None ,lr = 0.1,epochs = 3, trainDataLoader=None  , testDataLoader = None , batch_size = 32 ):
   optimizer = torch.optim.Adam(params = model.parameters() , lr = lr)
   from tqdm.auto import tqdm
 
@@ -32,7 +32,7 @@ def train(model:nn.Module = None, loss_fn =loss_fn ,lr = 0.1,epochs = 3, trainDa
 
 
 
-def show_grid(model:nn.Module =None, row:int = 5, col:int = 5  ,test_data:torch.utils.data.datasets=test_data , Cnn:int = 0 ):
+def show_grid(model:nn.Module =None, row:int = 5, col:int = 5  ,test_data:torch.utils.data.datasets=None , Cnn:int = 0 ):
   """
   def pred(self , X):
     self.eval()
