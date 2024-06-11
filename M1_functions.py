@@ -33,13 +33,13 @@ def train(model:nn.Module = None, loss_fn =loss_fn ,lr = 0.1,epochs = 3, trainDa
 
 
 def show_grid(model:nn.Module =None, row:int = 5, col:int = 5  ,test_data:torch.utils.data.datasets=test_data , Cnn:int = 0 ):
-"""
-def pred(self , X):
+  """
+  def pred(self , X):
     self.eval()
     with torch.inference_mode():
       return self(X)
 
-"""
+  """
   fig = plt.figure(figsize = (row*2 , col*2))
   correct_count = 0
   for i in range(1, row*col +1 ):
