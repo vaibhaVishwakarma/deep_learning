@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { DrawingBoard } from "@/components/drawing-board"
 import { PredictionDisplay } from "@/components/prediction-display"
 import { FeedbackBar } from "@/components/feedback-bar"
@@ -48,13 +48,34 @@ export default function Home() {
 
   const hasDrawing = drawingData.some((row) => row.some((cell) => cell > 0))
 
+  useEffect(()=>{
+    async function sendData() {
+    const response = await fetch('https://digits-predictor.onrender.com/', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ message: 'hi' }),
+    });
+
+    const result = await response.json();
+    console.log('Server Response:', result);
+  }
+  try{
+    sendData();
+  }
+  catch (error){
+    console.log('Error sending message:', error);
+  }
+  },[]);
+
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="mx-auto max-w-4xl space-y-6">
         <div className="text-center">
           <h1 className="text-3xl font-bold">Digit Recognition Drawing Board</h1>
           <p className="text-muted-foreground mt-2">
-            Draw a digit (0-9) on the grid below and click predict to see the AI's guess
+            Draw a digit (0-9) on the grid below and click predict to see the AI&apos;s guess
           </p>
         </div>
 

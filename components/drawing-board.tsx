@@ -14,7 +14,7 @@ interface DrawingBoardProps {
 export function DrawingBoard({ data, onChange, disabled }: DrawingBoardProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [isDrawing, setIsDrawing] = useState(false)
-  const [lastPos, setLastPos] = useState<{ x: number; y: number } | null>(null)
+  const [lastPos, setLastPos] = useState<{ row: number; col: number } | null>(null)
 
   const GRID_SIZE = 28
   const CELL_SIZE = 12
